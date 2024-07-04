@@ -1,7 +1,6 @@
 import PokemonDetail from "@/components/PokemonDetail";
 import { fetchPokemon } from "@/utils/fetchPokemon";
 import { Metadata } from "next";
-import Link from "next/link";
 
 export type ParamsProps = {
   params: { id: string };
@@ -25,8 +24,6 @@ function DetailPage({ params }: ParamsProps) {
   return (
     <div>
       <PokemonDetail id={id} />
-      <p>도감번호: {id}</p>
-      <Link href="/">뒤로 가기</Link>
     </div>
   );
 }
