@@ -31,11 +31,11 @@ function PokemonDetail({ id }: PokemonDetailProps) {
   if (isError || !pokemon) return <div>error..</div>;
 
   return (
-    <article className="max-w-[480px] mx-auto flex flex-col items-center h-screen justify-center">
+    <article className="max-w-[480px] mx-auto flex flex-col items-center min-h-screen justify-start py-12">
       <div className="bg-white rounded-lg text-black">
         <div className="p-4 text-align w-full bg-slate-500">
           <h2>{pokemon.korean_name}</h2>
-          <p>No. 000{id}</p>
+          <p>No. {id}</p>
         </div>
 
         <div className="flex flex-col items-center justify-center p-6">
@@ -47,7 +47,7 @@ function PokemonDetail({ id }: PokemonDetailProps) {
           />
           <div> 이름: {pokemon.korean_name} </div>
           <div>
-            키: {pokemon.height} 무게: {pokemon.weight}
+            키: {pokemon.height}m 무게: {pokemon.weight}kg
           </div>
           <div>
             <div>
@@ -76,7 +76,12 @@ function PokemonDetail({ id }: PokemonDetailProps) {
           <div className="py-4">
             기술:
             {pokemon.moves.map((move, index) => (
-              <span key={index}>{move.move.korean_name}</span>
+              <span
+                className="inline-block py-0.5 px-1 rounded-md mr-1 text-sm"
+                key={index}
+              >
+                {move.move.korean_name}
+              </span>
             ))}
           </div>
 
